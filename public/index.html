@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Almost Liberty</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        button {
+            padding: 12px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .output {
+            margin-top: 20px;
+        }
+        .output pre {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 15px;
+            white-space: pre-wrap;
+        }
+        .activity-button, .specific-activity-button {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px 15px;
+            background-color: white;
+            color: #28a745;
+            border: 2px solid #28a745;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .activity-button:hover, .specific-activity-button:hover {
+            background-color: #e8f5e9;
+        }
+        .activity-button.active, .specific-activity-button.active {
+            background-color: #28a745;
+            color: white;
+        }
+        .hidden {
+            display: none;
+        }
+        .general-info {
+            background-color: #007BFF;
+            color: white;
+            padding: 15px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Almost Liberty</h1>
+
+        <div class="form-group">
+            <label for="activityLocation">Location</label>
+            <input type="text" id="activityLocation" placeholder="Enter location">
+            <div id="generalActivityButtons"></div>
+            <div id="specificActivityButtons" class="hidden"></div>
+            <div class="output" id="activityOutput"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="activityString">Activity</label>
+            <input type="text" id="activityString" placeholder="Enter activity">
+            <button onclick="fetchSpotFun()">Get Spots</button>
+            <div class="output" id="spotOutput"></div>
+        </div>
+    </div>
+
+    <script>
+        let userLocation = '';
+        let selectedActivities = new Set();
+
+        document.getElementById('activityLocation').addEventListener('blur', () => {
+            const newLocation = document.getElementById('activityLocation').value;
+            if (newLocation && newLocation !== userLocation) {
+                userLocation = newLocation;
+                clearScreen();
+                fetchActivityFun();
+            }
+        });
+
+        function clearScreen() {
+            document.getElementById('generalActivityButtons').innerHTML = '';
+            document.getElementById('specificActivityButtons').innerHTML = '';
+            document.getElementById('specificActivityButtons').classList.add('hidden');
+            document.getElementById('activityOutput').innerHTML = '';
+            document.getElementById('spotOutput').innerHTML = '';
+            selectedActivities.clear();
+            document.getElementById('activityString').value = '';
+        }
+
+        async function fetchActivityFun() {
+            const location = document.getElementById('activityLocation').value;
+            console.log('Fetching activities for:', location);
+
+            try {
+                const response = await fetch(`/api/activity?location=${encodeURIComponent(location)}`);
+                console.log('Fetch initiated...');
+                console.log('Response status:', response.status);
+                if (!response.ok) throw new Error('Network response was not ok');
+                const data = await response.json();
+                console.log('Received data:', data);
+                displayGeneralActivityButtons(data);
+            } catch (error) {
+                console.error('Fetch error:', error);
+                document.getElementById('activityOutput').innerHTML = `<pre>Error: ${error.message}</pre>`;
+            }
+        }
+
+        async function fetchSpotFun() {
+            const activityInput = document.getElementById('activityString').value;
+            const combinedText = activityInput + (selectedActivities.size ? ' ; ' + Array.from(selectedActivities).join(' ; ') : '');
+            console.log('Fetching spots for:', userLocation, combinedText);
+
+            try {
+                const response = await fetch(`/api/spot?location=${encodeURIComponent(userLocation)}&activityString=${encodeURIComponent(combinedText)}`);
+                console.log('Fetch initiated...');
+                console.log('Response status:', response.status);
+                if (!response.ok) throw new Error('Network response was not ok');
+                const data = await response.json();
+                console.log('Received data:', data);
+                displaySpots(data);
+            } catch (error) {
+                console.error('Fetch error:', error);
+                document.getElementById('spotOutput').innerHTML = `<pre>Error: ${error.message}</pre>`;
+            }
+        }
+
+        function displayGeneralActivityButtons(jsonObject) {
+            const generalActivityButtonsDiv = document.getElementById('generalActivityButtons');
+            generalActivityButtonsDiv.innerHTML = ''; // Clear previous buttons
+            const specificActivityButtonsDiv = document.getElementById('specificActivityButtons');
+            specificActivityButtonsDiv.classList.add('hidden'); // Hide specific activity buttons
+
+            Object.keys(jsonObject).forEach(activity => {
+                const button = document.createElement('button');
+                button.classList.add('activity-button');
+                button.innerText = activity;
+                button.onclick = () => {
+                    displaySpecificActivityButtons(jsonObject[activity]);
+                    toggleActivity(activity);
+                };
+                generalActivityButtonsDiv.appendChild(button);
+            });
+        }
+
+        function displaySpecificActivityButtons(activities) {
+            const specificActivityButtonsDiv = document.getElementById('specificActivityButtons');
+            specificActivityButtonsDiv.innerHTML = ''; // Clear previous buttons
+            activities.forEach(activity => {
+                const button = document.createElement('button');
+                button.classList.add('specific-activity-button');
+                button.innerText = activity;
+                button.onclick = () => toggleActivity(activity);
+                specificActivityButtonsDiv.appendChild(button);
+            });
+            specificActivityButtonsDiv.classList.remove('hidden'); // Show specific activity buttons
+        }
+
+        function toggleActivity(activity) {
+            const button = Array.from(document.querySelectorAll('button')).find(btn => btn.innerText === activity);
+            if (selectedActivities.has(activity)) {
+                selectedActivities.delete(activity);
+                button.classList.remove('active');
+            } else {
+                selectedActivities.add(activity);
+                button.classList.add('active');
+            }
+            updateActivityInput();
+        }
+
+        function updateActivityInput() {
+            const activityInput = document.getElementById('activityString');
+            const activityText = activityInput.value;
+            const selectedActivitiesText = Array.from(selectedActivities).join(' ; ');
+            const combinedText = activityText + (selectedActivitiesText ? ' ; ' + selectedActivitiesText : '');
+            console.log('Combined Text:', combinedText);
+        }
+
+        function displaySpots(data) {
+            const spotOutput = document.getElementById('spotOutput');
+            spotOutput.innerHTML = ''; // Clear previous output
+            data.forEach((spot, index) => {
+                if (index === 0) {
+                    const generalInfoDiv = document.createElement('div');
+                    generalInfoDiv.classList.add('general-info');
+                    generalInfoDiv.innerHTML = `
+                        <h3>About your search</h3>
+                        <p>${spot.description}</p>
+                    `;
+                    spotOutput.appendChild(generalInfoDiv);
+                } else {
+                    const spotDiv = document.createElement('div');
+                    spotDiv.innerHTML = `
+                        <h3>${spot.name}</h3>
+                        <p>${spot.description}</p>
+                        <ul>
+                            ${spot.features.map(feature => `<li>${feature}</li>`).join('')}
+                        </ul>
+                    `;
+                    spotOutput.appendChild(spotDiv);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
