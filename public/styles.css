@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    overflow: hidden;
+}
+
+#hub {
+    width: 100px;
+    height: 100px;
+    background-color: #007bff;
+    border-radius: 50%;
+    position: absolute;
+}
+
+#spoke {
+    position: absolute;
+    width: 50px; /* Adjusted width for better fit */
+    height: 50px; /* Adjusted height for better fit */
+    background-color: #f2f2f2;
+    color: black;
+    text-align: center;
+    line-height: normal; /* Reset line-height */
+    border-radius: 50%;
+    opacity: 0; /* Start fully transparent */
+    transform: scale(0.8); /* Start slightly scaled down */
+    transition: opacity 0.5s, transform 0.5s; /* Smooth transitions for opacity and transform */
+    visibility: hidden; /* Initially hidden */
+    z-index: 1; /* Ensure notes appear above other elements */
+    transform-origin: center center; /* Center point for rotation */
+    display: flex; /* Flexbox for centering content */
+    align-items: center; /* Vertically center content */
+    justify-content: center; /* Horizontally center content */
+    font-size: 0.7em; /* Adjust font size */
+    padding: 5px; /* Add some padding */
+    box-sizing: border-box; /* Include padding in width/height */
+}
+
+@keyframes orbit {
+    0% {
+        transform: rotate(0deg) translateX(40vw) rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg) translateX(40vw) rotate(-180deg);
+    }
+    100% {
+        transform: rotate(360deg) translateX(40vw) rotate(-360deg);
+    }
+}

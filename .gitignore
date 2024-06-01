@@ -13,3 +13,4 @@ secrets.json
 # Log-files
 yarn-error.log
 report.*.json
+.vercel
