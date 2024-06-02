@@ -1,52 +1,134 @@
 body {
-    margin: 0;
-    height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f0f0f0;
+    height: 100vh;
+    margin: 0;
     overflow: hidden;
 }
-
-#hub {
-    width: 100px;
-    height: 100px;
-    background-color: #007bff;
-    border-radius: 50%;
-    position: absolute;
+.container {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    max-height: 100%;
 }
-
-#spoke {
-    position: absolute;
-    width: 50px; /* Adjusted width for better fit */
-    height: 50px; /* Adjusted height for better fit */
-    background-color: #f2f2f2;
-    color: black;
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.description {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+.input-button-group {
+    display: flex;
+    align-items: start;
+}
+.input-button-group input[type="text"] {
+    flex: 1;
+    margin-right: 20px;
+}
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+button {
+    padding: 12px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+}
+button:hover {
+    background-color: #0056b3;
+}
+#randomLocationButton {
+    
+    padding: 12px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: normal; /* Ensure the line-height is consistent */
+    display: flex;
+}
+#randomLocationButton:hover {
+    background-color: #218838;
+}
+.output {
+    margin-top: 20px;
+}
+.output pre {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 15px;
+    white-space: pre-wrap;
+}
+.activity-button, .specific-activity-button {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 15px;
+    background-color: white;
+    color: #28a745;
+    border: 2px solid #28a745;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+}
+.activity-button:hover, .specific-activity-button:hover {
+    background-color: #e8f5e9;
+}
+.activity-button.active, .specific-activity-button.active {
+    background-color: #28a745;
+    color: white;
+}
+.hidden {
+    display: none;
+}
+.general-info {
+    background-color: #007BFF;
+    color: white;
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+.optional-note {
+    font-size: 14px;
+    color: #666;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+.loading-message {
+    color: #007BFF;
+    font-size: 20px;
+    margin-top: 20px;
     text-align: center;
-    line-height: normal; /* Reset line-height */
-    border-radius: 50%;
-    opacity: 0; /* Start fully transparent */
-    transform: scale(0.8); /* Start slightly scaled down */
-    transition: opacity 0.5s, transform 0.5s; /* Smooth transitions for opacity and transform */
-    visibility: hidden; /* Initially hidden */
-    z-index: 1; /* Ensure notes appear above other elements */
-    transform-origin: center center; /* Center point for rotation */
-    display: flex; /* Flexbox for centering content */
-    align-items: center; /* Vertically center content */
-    justify-content: center; /* Horizontally center content */
-    font-size: 0.7em; /* Adjust font size */
-    padding: 5px; /* Add some padding */
-    box-sizing: border-box; /* Include padding in width/height */
-}
-
-@keyframes orbit {
-    0% {
-        transform: rotate(0deg) translateX(40vw) rotate(0deg);
-    }
-    50% {
-        transform: rotate(180deg) translateX(40vw) rotate(-180deg);
-    }
-    100% {
-        transform: rotate(360deg) translateX(40vw) rotate(-360deg);
-    }
 }
