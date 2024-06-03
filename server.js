@@ -1,29 +1,47 @@
-// server.js
 const express = require('express');
 const path = require('path');
 const dotenv = require('dotenv');
-dotenv.config(); // Load environment variables
+const fs = require('fs');
+dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 3000; // Set the port from environment or default to 3000
+const port = process.env.PORT || 3000;
 
-app.use(express.json()); // Middleware to parse JSON bodies
-app.use(express.static(path.join(__dirname, 'public'))); // Serve static files from the 'public' directory
+app.use(express.json());
+app.use(express.static(path.join(__dirname, 'public')));
 
-// Import your API routes
-const activityRoutes = require('./api/activity');
-const spotRoutes = require('./api/spot'); // Ensure correct path to spot.js
+let locationCache = {};
 
-// Set up the API routes
-app.use('/api/activity', activityRoutes); // Use the activity routes for /api/activity endpoint
-app.use('/api/spot', spotRoutes); // Use the spot routes for /api/spot endpoint
+// Load predefined location data
+function loadPredefinedLocations() {
+    try {
+        const data = fs.readFileSync(path.join(__dirname, 'predefinedLocations.json'), 'utf-8');
+        if (data) {
+            locationCache = JSON.parse(data);
+            console.log('Predefined locations loaded successfully.');
+        } else {
+            console.warn('Predefined locations file is empty.');
+        }
+    } catch (error) {
+        console.error('Error loading predefined locations:', error);
+    }
+}
 
-// Serve the index.html file for the root URL
+// Call the function to load data
+loadPredefinedLocations();
+
+const activityRoutes = require('./api/activity')(locationCache);
+const spotRoutes = require('./api/spot');
+
+app.use('/api/activity', activityRoutes);
+app.use('/api/spot', spotRoutes);
+
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Start the server
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
+
+module.exports = { locationCache };
