@@ -38,8 +38,6 @@ h2 {
     color: #333; /* Darker color for contrast */
 }
 
-
-
 .description {
     font-size: 16px;
     margin-bottom: 20px;
@@ -83,7 +81,6 @@ button:hover {
     background-color: #0056b3;
 }
 #randomLocationButton {
-    
     padding: 12px 20px;
     background-color: #28a745;
     color: white;
@@ -106,7 +103,9 @@ button:hover {
     border-radius: 15px;
     white-space: pre-wrap;
 }
-.activity-button, .specific-activity-button {
+
+/* Existing styles for general activity buttons */
+.activity-button {
     display: inline-block;
     margin: 5px;
     padding: 10px 15px;
@@ -115,15 +114,40 @@ button:hover {
     border: 2px solid #28a745;
     border-radius: 25px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 12px;
 }
-.activity-button:hover, .specific-activity-button:hover {
+
+.activity-button:hover {
     background-color: #e8f5e9;
 }
-.activity-button.active, .specific-activity-button.active {
+
+.activity-button.active {
     background-color: #28a745;
     color: white;
 }
+
+/* New styles for specific activity buttons */
+.specific-activity-button {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 15px;
+    background-color: white;
+    color: #ff5733; /* Complementary color (red) */
+    border: 2px solid #ff5733; /* Complementary color (red) */
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.specific-activity-button:hover {
+    background-color: #ffe6e6; /* Light red for hover effect */
+}
+
+.specific-activity-button.active {
+    background-color: #ff5733;
+    color: white;
+}
+
 .hidden {
     display: none;
 }
