@@ -1,7 +1,6 @@
 const express = require('express');
 const path = require('path');
 const dotenv = require('dotenv');
-const fs = require('fs');
 dotenv.config();
 
 const app = express();
@@ -20,19 +19,8 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-let locationCache = {};
-
-// Load predefined location data
-function loadPredefinedLocations() {
-    const data = fs.readFileSync(path.join(__dirname, 'predefinedLocations.json'), 'utf-8');
-    locationCache = JSON.parse(data);
-}
-
-// Call the function to load data
-loadPredefinedLocations();
-
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
 
-module.exports = { locationCache };
+module.exports = { locationCache: {} };
