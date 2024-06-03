@@ -3,7 +3,10 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #6a11cb, #2575fc); /* Example: Gradient background */
+    background: url('public/CosmosBackground.png'); /* Use only the background image */
+    background-size: cover; /* Ensure the image covers the viewport */
+    background-repeat: no-repeat; /* Prevent repetition */
+    background-attachment: fixed; /* Keep the background fixed during scrolling */
     color: #000000;
     overflow-y: auto; /* Enable vertical scrolling */
 }
