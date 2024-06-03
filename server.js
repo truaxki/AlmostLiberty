@@ -11,6 +11,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 let locationCache = {};
+const CACHE_EXPIRATION_TIME = 604800000; // 1 week in milliseconds
 
 // Load predefined location data
 function loadPredefinedLocations() {
@@ -30,7 +31,7 @@ function loadPredefinedLocations() {
 // Call the function to load data
 loadPredefinedLocations();
 
-const activityRoutes = require('./api/activity')(locationCache);
+const activityRoutes = require('./api/activity')(locationCache, CACHE_EXPIRATION_TIME);
 const spotRoutes = require('./api/spot');
 
 app.use('/api/activity', activityRoutes);
@@ -44,4 +45,4 @@ app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
 
-module.exports = { locationCache };
+module.exports = { locationCache, CACHE_EXPIRATION_TIME };
