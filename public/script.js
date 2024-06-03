@@ -210,3 +210,19 @@ function displaySpots(data) {
         }
     });
 }
+
+/* Add this code to dynamically change the placeholder text based on screen size */
+document.addEventListener('DOMContentLoaded', () => {
+    const activityLocationInput = document.getElementById('activityLocation');
+    
+    function updatePlaceholder() {
+        if (window.innerWidth <= 768) {
+            activityLocationInput.placeholder = "Enter a location";
+        } else {
+            activityLocationInput.placeholder = "Enter a location (real or fictional)";
+        }
+    }
+    
+    window.addEventListener('resize', updatePlaceholder);
+    updatePlaceholder(); // Initial call to set the placeholder based on the current screen size
+});
