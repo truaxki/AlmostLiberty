@@ -21,6 +21,7 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow-y: auto;
     max-height: 100%;
+    text-align: center; /* Center align text in the container */
 }
 
 h1 {
@@ -146,17 +147,31 @@ button:hover {
 
 /* Mobile-specific styles */
 @media (max-width: 768px) {
-    .input-button-group {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .input-button-group input[type="text"] {
-        margin-right: 0;
-        margin-bottom: 10px;
-    }
-
     #randomLocationButton {
+        display: none;
+    }
+
+    h1 {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    button {
         width: 100%;
+        padding: 15px;
+    }
+
+    input[type="text"] {
+        font-size: 14px;
     }
 }
