@@ -14,3 +14,6 @@ secrets.json
 yarn-error.log
 report.*.json
 .vercel
+
+# Activities Populate Script
+activitiesPopulate.js
