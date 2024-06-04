@@ -1,4 +1,1144 @@
 {
+  "New York": {
+    "Outdoor Activities": [
+      "Hiking",
+      "Biking",
+      "Rock Climbing",
+      "Kayaking",
+      "Canoeing",
+      "Fishing",
+      "Camping",
+      "Birdwatching",
+      "Picnicking"
+    ],
+    "Cultural Experiences": [
+      "Visiting Museums",
+      "Attending Broadway Shows",
+      "Exploring Art Galleries",
+      "Walking the High Line",
+      "Visiting Historical Sites",
+      "Taking a Ferry to the Statue of Liberty",
+      "Experiencing the diversity of NYC's neighborhoods"
+    ],
+    "Shopping & Dining": [
+      "Shopping on Fifth Avenue",
+      "Exploring the Chelsea Market",
+      "Finding unique boutiques in SoHo",
+      "Trying different cuisines in Chinatown",
+      "Dining at Michelin-starred restaurants",
+      "Grabbing a slice of pizza from a local pizzeria"
+    ],
+    "Entertainment & Nightlife": [
+      "Catching a concert at Madison Square Garden",
+      "Seeing a show in Times Square",
+      "Dancing the night away in the Meatpacking District",
+      "Enjoying a rooftop bar with city views",
+      "Exploring the vibrant nightlife in Brooklyn",
+      "Catching a comedy show in the East Village"
+    ]
+  },
+  "London": {
+    "Culture & History": [
+      "Visiting world-renowned museums like the British Museum, National Gallery, and Tate Modern",
+      "Exploring historic landmarks such as Buckingham Palace, Tower of London, and Westminster Abbey",
+      "Attending theatre performances in the West End",
+      "Walking the streets of historic neighborhoods like Covent Garden, Notting Hill, and Shoreditch",
+      "Visiting historic markets like Borough Market and Camden Market"
+    ],
+    "Shopping": [
+      "Shopping on Oxford Street, Regent Street, and Bond Street for high-end fashion and luxury goods",
+      "Exploring independent boutiques in neighborhoods like Shoreditch, Notting Hill, and Brixton",
+      "Visiting department stores like Harrods and Liberty London",
+      "Shopping for souvenirs and gifts in markets like Covent Garden Market and Portobello Road Market"
+    ],
+    "Food & Drink": [
+      "Dining at Michelin-starred restaurants and world-class pubs",
+      "Exploring diverse cuisines from around the world",
+      "Trying traditional British dishes like fish and chips, roast dinner, and afternoon tea",
+      "Visiting street food markets like Borough Market and Maltby Street Market",
+      "Enjoying a pint of beer in a traditional British pub"
+    ],
+    "Entertainment & Nightlife": [
+      "Attending concerts and live music performances",
+      "Going to the cinema",
+      "Exploring the vibrant nightlife in neighborhoods like Shoreditch and Soho",
+      "Watching a football match at a Premier League stadium",
+      "Enjoying a night out at a casino or cabaret"
+    ],
+    "Parks & Green Spaces": [
+      "Relaxing in Hyde Park, Regent's Park, and Richmond Park",
+      "Walking or cycling along the Thames Path",
+      "Visiting Kew Gardens, a world-renowned botanical garden",
+      "Picnicking in a green space",
+      "Enjoying outdoor concerts and events in parks"
+    ]
+  },
+  "Paris": {
+    "Culture & History": [
+      "Visiting iconic landmarks like the Eiffel Tower, Louvre Museum, Notre Dame Cathedral",
+      "Exploring historical neighborhoods like the Latin Quarter, Marais, and Montmartre",
+      "Attending art exhibitions and performances at the Musée d'Orsay, Centre Pompidou, and Palais Garnier",
+      "Wandering through charming streets and discovering hidden gems like the Père Lachaise Cemetery and the Canal Saint-Martin"
+    ],
+    "Fine Dining & Cuisine": [
+      "Indulging in Michelin-starred restaurants and bistros",
+      "Trying traditional French dishes like escargots, foie gras, and steak frites",
+      "Exploring local markets like Marché des Enfants Rouges and Marché Bastille for fresh produce and gourmet treats",
+      "Enjoying a romantic dinner at a charming cafe or bistro"
+    ],
+    "Shopping": [
+      "Luxury shopping on the Champs-Élysées",
+      "Boutique browsing in the Marais and Saint-Germain-des-Prés",
+      "Finding unique souvenirs and vintage items at flea markets like Marché aux Puces de Saint-Ouen",
+      "Shopping for designer fashion and accessories in the Galeries Lafayette and Printemps department stores"
+    ],
+    "Parks & Gardens": [
+      "Picnicking and relaxing in the Jardin du Luxembourg",
+      "Strolling through the Tuileries Garden and enjoying views of the Louvre",
+      "Exploring the botanical wonders of the Jardin des Plantes",
+      "Taking a leisurely walk along the Seine River"
+    ],
+    "Nightlife & Entertainment": [
+      "Experiencing the vibrant nightlife scene in the Marais and Pigalle",
+      "Enjoying live music at jazz clubs and concert halls",
+      "Attending a cabaret show at the Moulin Rouge",
+      "Having a drink at a rooftop bar with panoramic city views"
+    ]
+  },
+  "Tokyo": {
+    "Culture & History": [
+      "Visiting temples and shrines (Sensoji Temple, Meiji Shrine, Yasukuni Shrine)",
+      "Exploring traditional gardens (Rikugien, Koishikawa Korakuen, Hama-rikyu Gardens)",
+      "Attending a Kabuki or Sumo wrestling performance",
+      "Visiting museums (Tokyo National Museum, Ghibli Museum, Mori Art Museum)",
+      "Strolling through historical districts (Asakusa, Yanaka, Shibuya)",
+      "Experiencing traditional tea ceremonies"
+    ],
+    "Shopping & Entertainment": [
+      "Shopping in Shibuya, Ginza, and Shinjuku",
+      "Exploring Akihabara (Electric Town) for electronics and anime",
+      "Visiting the Tokyo Disneyland and DisneySea theme parks",
+      "Experiencing karaoke (karaoke bars are abundant)",
+      "Watching a live music performance or attending a concert",
+      "Exploring the vibrant nightlife scene in Shibuya, Roppongi, and Shinjuku"
+    ],
+    "Food & Drink": [
+      "Trying traditional Japanese cuisine (sushi, ramen, tempura, yakitori)",
+      "Dining at Michelin-starred restaurants",
+      "Exploring street food markets (Ameya-Yokocho, Tsukiji Outer Market)",
+      "Sampling local sweets and desserts (wagashi)",
+      "Enjoying a cup of coffee at a trendy cafe",
+      "Experiencing izakaya (Japanese pub culture)"
+    ],
+    "Nature & Outdoors": [
+      "Hiking in the mountains (Mount Takao, Mount Fuji)",
+      "Visiting botanical gardens (Shinjuku Gyoen National Garden, Ueno Park)",
+      "Strolling through parks (Yoyogi Park, Ueno Park, Shiba Park)",
+      "Enjoying the cherry blossoms during spring (hanami)",
+      "Taking a boat tour on the Sumida River",
+      "Visiting the Tokyo Skytree for panoramic views"
+    ]
+  },
+  "Sydney": {
+    "Outdoor Activities": [
+      "Hiking",
+      "Mountain Biking",
+      "Rock Climbing",
+      "Surfing",
+      "Kayaking",
+      "Stand Up Paddleboarding",
+      "Bushwalking",
+      "Picnics in Parks",
+      "Beach Visits"
+    ],
+    "Culture and Arts": [
+      "Visiting Museums and Galleries",
+      "Attending Theatre Performances",
+      "Exploring Art Galleries",
+      "Street Art Tours",
+      "Live Music Events"
+    ],
+    "Food and Drink": [
+      "Fine Dining Experiences",
+      "Cafes and Coffee Culture",
+      "Tasting Local Produce",
+      "Exploring Ethnic Cuisine",
+      "Rooftop Bars and Restaurants",
+      "Pub Culture"
+    ],
+    "Shopping": [
+      "Luxury Boutiques",
+      "Designer Fashion Outlets",
+      "Markets and Street Stalls",
+      "Antique Shops",
+      "Shopping Malls"
+    ],
+    "History and Heritage": [
+      "Historical Walking Tours",
+      "Visiting Historic Buildings",
+      "Exploring Museums",
+      "Learning About Aboriginal Culture",
+      "Visiting War Memorials"
+    ],
+    "Nightlife and Entertainment": [
+      "Live Music Venues",
+      "Clubs and Bars",
+      "Cocktails and Rooftop Bars",
+      "Casinos",
+      "Comedy Shows"
+    ]
+  },
+  "Cape Town": {
+    "Outdoor Activities": [
+      "Hiking",
+      "Mountain Biking",
+      "Rock Climbing",
+      "Surfing",
+      "Kayaking",
+      "Whale Watching",
+      "Scuba Diving",
+      "Snorkeling",
+      "Bungee Jumping",
+      "Ziplining",
+      "Abseiling"
+    ],
+    "Culture and History": [
+      "Visiting Table Mountain",
+      "Exploring the Cape Malay Quarter",
+      "Visiting Robben Island",
+      "Exploring the Castle of Good Hope",
+      "Visiting the Kirstenbosch National Botanical Garden",
+      "Attending a township tour",
+      "Learning about the history of apartheid"
+    ],
+    "Food and Wine": [
+      "Tasting wine at Stellenbosch",
+      "Exploring the Cape Winelands",
+      "Dining at fine restaurants",
+      "Trying traditional South African cuisine",
+      "Attending a food market",
+      "Enjoying street food"
+    ],
+    "Shopping and Entertainment": [
+      "Shopping at the V&A Waterfront",
+      "Exploring the Long Street area",
+      "Visiting museums and art galleries",
+      "Attending live music performances",
+      "Enjoying the nightlife scene"
+    ],
+    "Beaches and Relaxation": [
+      "Relaxing on Clifton Beach",
+      "Swimming at Camps Bay",
+      "Sunbathing at Boulders Beach",
+      "Surfing at Muizenberg",
+      "Enjoying the beachside cafes and restaurants"
+    ]
+  },
+  "Moscow": {
+    "Culture & History": [
+      "Visiting the Kremlin",
+      "Exploring Red Square",
+      "Touring the Tretyakov Gallery",
+      "Discovering the Hermitage Museum",
+      "Walking through the Patriarch's Ponds",
+      "Visiting the Bolshoi Theatre",
+      "Attending a ballet performance",
+      "Exploring the Novodevichy Convent",
+      "Visiting the State Historical Museum",
+      "Learning about Russian history at the Museum of the Great Patriotic War"
+    ],
+    "Outdoor Activities": [
+      "Strolling through Gorky Park",
+      "Picnicking in Izmailovo Park",
+      "Cycling along the Moskva River",
+      "Hiking in the Sparrow Hills",
+      "Visiting the Moscow Zoo",
+      "Exploring the Botanical Garden",
+      "Taking a boat trip on the Moscow River"
+    ],
+    "Nightlife & Entertainment": [
+      "Enjoying live music at a concert hall",
+      "Dancing at a club in the city center",
+      "Trying traditional Russian cuisine at a restaurant",
+      "Watching a performance at the Stanislavsky and Nemirovich-Danchenko Moscow Academic Music Theatre",
+      "Attending a comedy show at a local theater",
+      "Exploring the trendy bars in the Gorky Park area"
+    ],
+    "Shopping & Dining": [
+      "Shopping for souvenirs at the Izmailovo Market",
+      "Exploring the luxury boutiques on Tverskaya Street",
+      "Trying traditional Russian food at a local restaurant",
+      "Enjoying a delicious meal at a Michelin-starred restaurant",
+      "Visiting the gourmet food market at Danilovsky Market"
+    ]
+  },
+  "Rio de Janeiro": {
+    "Outdoor Activities": [
+      "Hiking in Tijuca National Park",
+      "Rock Climbing at Pedra da Gavea",
+      "Surfing at Ipanema Beach",
+      "Sunbathing at Copacabana Beach",
+      "Stand-up Paddleboarding at Rodrigo de Freitas Lagoon",
+      "Kayaking in Guanabara Bay"
+    ],
+    "Cultural Experiences": [
+      "Visiting Christ the Redeemer Statue",
+      "Exploring Sugarloaf Mountain",
+      "Taking a guided tour of the historical center",
+      "Enjoying live music at a samba club",
+      "Attending a football match at Maracanã Stadium",
+      "Exploring the vibrant street art scene in Lapa"
+    ],
+    "Nightlife and Entertainment": [
+      "Dancing at a nightclub in Lapa",
+      "Enjoying live music at a bar in Ipanema",
+      "Attending a concert at the Vivo Rio",
+      "Exploring the nightlife scene in Copacabana",
+      "Watching a movie at a cinema in Leblon"
+    ],
+    "Food and Drink": [
+      "Trying traditional Brazilian cuisine like feijoada",
+      "Enjoying fresh seafood at a restaurant by the beach",
+      "Sampling local fruit juices and acai bowls",
+      "Visiting a local market to experience the culinary scene",
+      "Taking a cooking class to learn about Brazilian dishes"
+    ]
+  },
+  "Toronto": {
+    "Outdoor Activities": [
+      "Hiking",
+      "Biking",
+      "Kayaking",
+      "Canoeing",
+      "Stand-Up Paddleboarding",
+      "Rock Climbing",
+      "Picnicking",
+      "Birdwatching"
+    ],
+    "Cultural Experiences": [
+      "Visiting Museums",
+      "Attending Theatre Performances",
+      "Exploring Art Galleries",
+      "Attending Live Music Events",
+      "Exploring Historical Sites",
+      "Street Art Tours",
+      "Festivals"
+    ],
+    "Food & Drink": [
+      "Fine Dining",
+      "Ethnic Cuisine",
+      "Street Food",
+      "Breweries & Distilleries",
+      "Coffee Shops",
+      "Food Tours",
+      "Cooking Classes"
+    ],
+    "Shopping": [
+      "High-End Boutiques",
+      "Independent Shops",
+      "Farmers Markets",
+      "Shopping Malls",
+      "Vintage Stores"
+    ],
+    "Nightlife": [
+      "Live Music Venues",
+      "Bars & Pubs",
+      "Clubs",
+      "Rooftop Bars",
+      "Cocktail Lounges"
+    ],
+    "Family Activities": [
+      "Zoos & Aquariums",
+      "Theme Parks",
+      "Children's Museums",
+      "Parks & Playgrounds",
+      "Sporting Events",
+      "Interactive Exhibits"
+    ]
+  },
+  "Dubai": {
+    "Shopping": [
+      "Luxury shopping at Dubai Mall",
+      "Souk browsing in Deira and Bur Dubai",
+      "Designer boutiques in Downtown Dubai",
+      "Gold souk shopping for jewelry",
+      "Traditional handicrafts in the Old City"
+    ],
+    "Entertainment": [
+      "Theme park visits (Dubai Parks and Resorts, IMG Worlds of Adventure)",
+      "Live music and entertainment at various venues",
+      "Watching a show at Dubai Opera",
+      "Visiting the Dubai Aquarium and Underwater Zoo",
+      "Experiencing the Dubai Miracle Garden"
+    ],
+    "Culture & History": [
+      "Exploring the Jumeirah Mosque",
+      "Visiting the Dubai Museum",
+      "Exploring the Al Fahidi Historical Neighbourhood",
+      "Learning about Emirati culture at the Dubai Heritage Village",
+      "Taking a dhow cruise on Dubai Creek"
+    ],
+    "Adventure & Thrills": [
+      "Skydiving over Palm Jumeirah",
+      "Desert safaris with dune bashing and camel riding",
+      "Hot air ballooning over the desert",
+      "Water sports in the Arabian Gulf (jet skiing, parasailing, etc.)",
+      "Climbing the Burj Khalifa"
+    ],
+    "Luxury & Relaxation": [
+      "Spa treatments at world-class hotels",
+      "Fine dining experiences at Michelin-starred restaurants",
+      "Relaxing on the beaches of Jumeirah",
+      "Exploring the luxurious hotels and resorts",
+      "Shopping for high-end fashion and accessories"
+    ],
+    "Family Fun": [
+      "Visiting the Dubai Aquarium and Underwater Zoo",
+      "Enjoying the rides and attractions at Legoland Dubai",
+      "Spending time at the Dubai Miracle Garden",
+      "Having a picnic at Jumeirah Beach",
+      "Visiting the Dubai Frame for panoramic city views"
+    ]
+  },
+  "Bora Bora": {
+    "Water Activities": [
+      "Snorkeling",
+      "Scuba Diving",
+      "Swimming",
+      "Jet Skiing",
+      "Parasailing",
+      "Sailing",
+      "Windsurfing",
+      "Kayaking",
+      "Stand-up Paddleboarding",
+      "Lagoon Tours"
+    ],
+    "Luxury Experiences": [
+      "Overwater Bungalow Stays",
+      "Fine Dining",
+      "Spa Treatments",
+      "Private Yacht Charters",
+      "Romantic Sunset Cruises"
+    ],
+    "Cultural Experiences": [
+      "Exploring Local Markets",
+      "Visiting Polynesian Cultural Centers",
+      "Learning about Bora Bora's History",
+      "Observing Traditional Polynesian Music and Dance"
+    ],
+    "Nature & Relaxation": [
+      "Sunbathing on White Sand Beaches",
+      "Picnics on Motu (Islets)",
+      "Relaxing by the Lagoon",
+      "Enjoying the Tropical Scenery",
+      "Observing Marine Life"
+    ]
+  },
+  "Marrakech": {
+    "Culture & History": [
+      "Exploring the Djemaa el-Fna square",
+      "Visiting the Koutoubia Mosque",
+      "Wandering through the labyrinthine souks",
+      "Discovering the Bahia Palace",
+      "Exploring the Saadian Tombs",
+      "Learning about Moroccan history at the Museum of Moroccan Arts",
+      "Attending a traditional Moroccan music and dance performance"
+    ],
+    "Shopping & Dining": [
+      "Bargaining for spices, textiles, and handicrafts in the souks",
+      "Trying traditional Moroccan cuisine at a local restaurant",
+      "Sampling delicious pastries at a patisserie",
+      "Sipping mint tea at a cafe",
+      "Experiencing a traditional hammam",
+      "Shopping for leather goods, carpets, and jewelry"
+    ],
+    "Excursions & Day Trips": [
+      "Visiting the Ouzoud Waterfalls",
+      "Exploring the Atlas Mountains",
+      "Going on a desert safari to the Sahara",
+      "Exploring the ancient city of Essaouira",
+      "Visiting the Agafay desert"
+    ],
+    "Relaxation & Wellness": [
+      "Relaxing in a traditional hammam",
+      "Getting a massage",
+      "Enjoying a spa treatment",
+      "Taking a yoga class",
+      "Spending time in a tranquil garden"
+    ]
+  },
+  "Santorini": {
+    "Scenic Views & Photography": [
+      "Watching the Santorini sunset from Oia",
+      "Exploring the white-washed villages and blue-domed churches",
+      "Taking a cable car ride up to the caldera",
+      "Hiking the caldera rim for panoramic views",
+      "Capturing photos of the picturesque beaches",
+      "Visiting the Akrotiri archaeological site"
+    ],
+    "Relaxation & Leisure": [
+      "Sunbathing on the black sand beaches",
+      "Swimming in the Aegean Sea",
+      "Enjoying a traditional Greek meal at a seaside taverna",
+      "Relaxing at a luxury resort with stunning views",
+      "Taking a boat trip to nearby islands",
+      "Getting a massage with a view of the caldera"
+    ],
+    "History & Culture": [
+      "Visiting the ancient city of Akrotiri",
+      "Exploring the Archaeological Museum in Fira",
+      "Learning about the volcanic history of Santorini",
+      "Attending a traditional Greek dance performance",
+      "Sampling local wines at a vineyard",
+      "Exploring the Santorini Wine Museum"
+    ],
+    "Adventure & Activities": [
+      "Hiking the caldera rim trail",
+      "Sailing or windsurfing in the Aegean Sea",
+      "Taking a horseback riding tour through the volcanic landscape",
+      "Going on a scuba diving or snorkeling excursion",
+      "Exploring the island by ATV or scooter",
+      "Taking a cooking class to learn traditional Greek recipes"
+    ],
+    "Shopping & Dining": [
+      "Browsing the local shops in Oia and Fira",
+      "Finding unique souvenirs and handmade crafts",
+      "Tasting delicious Greek cuisine at a variety of restaurants",
+      "Enjoying a romantic dinner with a sunset view",
+      "Sampling local wines and cheeses at a winery",
+      "Experiencing the vibrant nightlife scene in Fira"
+    ]
+  },
+  "Maldives": {
+    "Water Sports": [
+      "Snorkeling",
+      "Scuba Diving",
+      "Surfing",
+      "Windsurfing",
+      "Kitesurfing",
+      "Sailing",
+      "Jet Skiing",
+      "Parasailing",
+      "Water Skiing"
+    ],
+    "Island Hopping": [
+      "Exploring different islands",
+      "Visiting local villages",
+      "Discovering unique beaches",
+      "Experiencing diverse marine life",
+      "Enjoying luxury resorts"
+    ],
+    "Relaxation and Wellness": [
+      "Sunbathing on pristine beaches",
+      "Spa treatments",
+      "Yoga and meditation retreats",
+      "Luxury overwater bungalows",
+      "Enjoying serene landscapes"
+    ],
+    "Cultural Experiences": [
+      "Visiting local markets",
+      "Learning about Maldivian culture and history",
+      "Exploring traditional mosques",
+      "Sampling local cuisine",
+      "Enjoying traditional Maldivian music and dance"
+    ],
+    "Underwater Adventures": [
+      "Exploring coral reefs",
+      "Swimming with manta rays",
+      "Diving with whale sharks",
+      "Spotting colorful fish",
+      "Discovering shipwrecks"
+    ]
+  },
+  "Reykjavik": {
+    "Outdoor Activities": [
+      "Hiking",
+      "Mountain Biking",
+      "Rock Climbing",
+      "Horseback Riding",
+      "Whale Watching",
+      "Birdwatching",
+      "Glacier Hiking",
+      "Snorkeling",
+      "Scuba Diving",
+      "Kayaking",
+      "Sailing",
+      "Fishing"
+    ],
+    "Cultural Experiences": [
+      "Exploring the City Center",
+      "Visiting the Harpa Concert Hall and Conference Centre",
+      "Visiting the National Museum of Iceland",
+      "Exploring the Hallgrímskirkja Church",
+      "Visiting the Perlan Museum",
+      "Attending a concert or performance",
+      "Taking a cooking class",
+      "Learning about Icelandic history and culture"
+    ],
+    "Relaxation and Wellness": [
+      "Visiting the Blue Lagoon",
+      "Enjoying a spa treatment",
+      "Relaxing in a geothermal pool",
+      "Taking a yoga class",
+      "Indulging in a massage"
+    ],
+    "Food and Drink": [
+      "Trying traditional Icelandic cuisine",
+      "Enjoying fresh seafood",
+      "Visiting local breweries",
+      "Sampling local spirits",
+      "Taking a food tour"
+    ]
+  },
+  "Queenstown": {
+    "Outdoor Adventures": [
+      "Hiking",
+      "Mountain Biking",
+      "Rock Climbing",
+      "Bungy Jumping",
+      "Skydiving",
+      "White Water Rafting",
+      "Jet Boating",
+      "Kayaking",
+      "Parasailing",
+      "Skiing & Snowboarding (in winter)"
+    ],
+    "Scenic Beauty": [
+      "Lake Wakatipu Cruises",
+      "Hiking to scenic viewpoints",
+      "Visiting the Queenstown Gardens",
+      "Taking a gondola ride to Bob's Peak",
+      "Exploring the surrounding mountains and valleys"
+    ],
+    "Wine & Food": [
+      "Wine tasting at local wineries",
+      "Dining at world-class restaurants",
+      "Sampling local craft beers",
+      "Exploring farmers' markets",
+      "Trying traditional New Zealand cuisine"
+    ],
+    "Culture & History": [
+      "Visiting the Queenstown Museum & Heritage Centre",
+      "Learning about the history of gold mining",
+      "Exploring the early settler history",
+      "Attending local arts and cultural events"
+    ],
+    "Relaxation & Spa": [
+      "Visiting hot springs",
+      "Enjoying spa treatments",
+      "Relaxing at lakeside cafes",
+      "Taking a leisurely stroll along the waterfront"
+    ]
+  },
+  "Petra": {
+    "Archaeological Exploration": [
+      "Exploring the Treasury (Al-Khazneh)",
+      "Visiting the Monastery (Ad-Deir)",
+      "Wandering through the Siq (the narrow gorge)",
+      "Discovering the Royal Tombs",
+      "Exploring the Roman Amphitheatre"
+    ],
+    "Hiking and Trekking": [
+      "Hiking the Petra Trail",
+      "Exploring the Monastery via the Monastery Trail",
+      "Trekking to the High Place of Sacrifice",
+      "Hiking to the Siq al-Barid (Little Petra)",
+      "Exploring the Wadi Musa area"
+    ],
+    "Cultural Experiences": [
+      "Witnessing Bedouin culture and traditions",
+      "Learning about the Nabataean civilization",
+      "Attending cultural performances and events",
+      "Shopping for local crafts and souvenirs",
+      "Enjoying traditional Jordanian cuisine"
+    ],
+    "Adventure Activities": [
+      "Hot air ballooning over Petra",
+      "Horseback riding through the desert",
+      "Camel riding through the Siq",
+      "Rock climbing in the surrounding mountains"
+    ],
+    "Nature and Scenery": [
+      "Enjoying the panoramic views from the Monastery",
+      "Observing the unique desert landscapes",
+      "Hiking through the canyons and gorges",
+      "Witnessing the sunset over the Treasury",
+      "Exploring the biodiversity of the area"
+    ]
+  },
+  "Seychelles": {
+    "Beach Activities": [
+      "Sunbathing",
+      "Swimming",
+      "Snorkeling",
+      "Scuba diving",
+      "Windsurfing",
+      "Kite surfing",
+      "Sailing",
+      "Jet skiing",
+      "Parasailing",
+      "Beach volleyball",
+      "Stand-up paddleboarding"
+    ],
+    "Nature & Wildlife": [
+      "Island hopping",
+      "Nature walks",
+      "Bird watching",
+      "Whale and dolphin watching",
+      "Turtle spotting",
+      "Marine park visits",
+      "Mangrove exploration"
+    ],
+    "Luxury & Relaxation": [
+      "Spa treatments",
+      "Fine dining",
+      "Boutique shopping",
+      "Sunset cruises",
+      "Private island visits",
+      "Luxury villa rentals"
+    ],
+    "Adventure & Water Sports": [
+      "Deep-sea fishing",
+      "Diving excursions",
+      "Kayaking",
+      "Canoeing",
+      "Stand-up paddleboarding",
+      "Surfing",
+      "Water skiing"
+    ],
+    "Cultural & Historical": [
+      "Visiting historical sites",
+      "Exploring local markets",
+      "Attending cultural events",
+      "Learning Creole language and culture",
+      "Visiting local museums"
+    ]
+  },
+  "Buenos Aires": {
+    "Culture & History": [
+      "Visiting historical landmarks like Plaza de Mayo, Casa Rosada, and the Metropolitan Cathedral",
+      "Exploring the vibrant street art scene in neighborhoods like Palermo and San Telmo",
+      "Attending tango shows and taking tango lessons",
+      "Visiting museums like the MALBA (Latin American Art Museum) and the Museo Nacional de Bellas Artes",
+      "Exploring the city's diverse neighborhoods, each with its own unique character",
+      "Wandering through the bohemian streets of San Telmo and exploring its antique shops and markets"
+    ],
+    "Dining & Nightlife": [
+      "Trying traditional Argentine dishes like asado (grilled meat), empanadas, and dulce de leche",
+      "Exploring the vibrant nightlife scene in Palermo, with its bars, clubs, and live music venues",
+      "Enjoying a traditional Argentine dinner at a parrilla (steakhouse)",
+      "Sampling the city's diverse culinary scene, from Italian and French to Asian and Middle Eastern",
+      "Indulging in the city's famous coffee culture and enjoying a cup of mate at a local café"
+    ],
+    "Shopping & Entertainment": [
+      "Shopping for designer goods and local crafts on the exclusive Florida Street",
+      "Exploring the unique shops and boutiques in Palermo Soho",
+      "Visiting the bustling markets in San Telmo and exploring local crafts and antiques",
+      "Attending live music concerts and theatrical performances",
+      "Catching a game of fútbol (soccer) at the iconic La Bombonera stadium"
+    ],
+    "Parks & Green Spaces": [
+      "Relaxing in the sprawling green spaces of Palermo, including the Jardín Japonés and the Parque 3 de Febrero",
+      "Picnicking by the Río de la Plata at Puerto Madero",
+      "Strolling through the Botanical Garden and admiring diverse plant species",
+      "Enjoying the open-air markets and cultural events held at the Plaza Dorrego",
+      "Visiting the Ecoparque, a modern zoo dedicated to wildlife conservation"
+    ]
+  },
+  "Fiji": {
+    "Outdoor Activities": [
+      "Snorkeling",
+      "Scuba Diving",
+      "Surfing",
+      "Kiteboarding",
+      "Windsurfing",
+      "Sailing",
+      "Fishing",
+      "Hiking",
+      "Kayaking",
+      "Stand-up Paddleboarding"
+    ],
+    "Island Exploration": [
+      "Island hopping",
+      "Visiting traditional villages",
+      "Exploring rainforests",
+      "Discovering hidden waterfalls",
+      "Relaxing on pristine beaches"
+    ],
+    "Cultural Experiences": [
+      "Learning about Fijian culture and traditions",
+      "Attending a traditional kava ceremony",
+      "Enjoying a Fijian feast",
+      "Visiting historical sites",
+      "Learning Fijian language and customs"
+    ],
+    "Relaxation and Wellness": [
+      "Spa treatments",
+      "Yoga and meditation retreats",
+      "Luxury resort stays",
+      "Enjoying the Fijian hospitality",
+      "Unwinding on secluded beaches"
+    ],
+    "Adventure Activities": [
+      "Whitewater rafting",
+      "Ziplining",
+      "Canyoning",
+      "Rock climbing",
+      "Off-road driving"
+    ]
+  },
+  "Havana": {
+    "Cultural Experiences": [
+      "Visiting historical landmarks like the Havana Cathedral and the Castillo de la Real Fuerza",
+      "Exploring the vibrant streets of Old Havana, a UNESCO World Heritage Site",
+      "Attending live music performances at clubs and theaters",
+      "Enjoying traditional Cuban dance and music at a salsa club",
+      "Visiting museums showcasing Cuban art, history, and culture"
+    ],
+    "Food & Drink": [
+      "Sampling authentic Cuban cuisine like Ropa Vieja, Picadillo, and Congri",
+      "Sipping on mojitos and other Cuban cocktails at rooftop bars",
+      "Experiencing the lively atmosphere of a paladar (private restaurant)",
+      "Taking a cooking class to learn how to prepare traditional Cuban dishes",
+      "Visiting a cigar factory and tasting Cuban cigars"
+    ],
+    "Beaches & Relaxation": [
+      "Sunbathing and swimming at the beautiful beaches of Playas del Este",
+      "Relaxing at a beachside resort with amenities and services",
+      "Enjoying water sports like kayaking, snorkeling, and windsurfing",
+      "Taking a boat trip to nearby islands with pristine beaches",
+      "Indulging in spa treatments and massages at luxury resorts"
+    ],
+    "History & Politics": [
+      "Learning about Cuban history and revolution at the Museo de la Revolución",
+      "Visiting the former residence of Ernest Hemingway, Finca Vigía",
+      "Exploring the historical streets and plazas of Old Havana",
+      "Taking a guided tour to learn about Cuba's political system",
+      "Visiting the Jose Martí Memorial, dedicated to Cuba's national hero"
+    ]
+  },
+  "Cusco": {
+    "Outdoor Activities": [
+      "Hiking",
+      "Trekking",
+      "Mountain Biking",
+      "Rock Climbing",
+      "Whitewater Rafting",
+      "Horseback Riding"
+    ],
+    "Cultural Experiences": [
+      "Visiting Machu Picchu",
+      "Exploring the Sacred Valley",
+      "Learning about Inca history and culture",
+      "Attending traditional festivals",
+      "Visiting local markets"
+    ],
+    "Adventure Tourism": [
+      "Ziplining",
+      "Canyoning",
+      "Mountain biking",
+      "Whitewater rafting",
+      "Paragliding"
+    ],
+    "Relaxation and Wellness": [
+      "Hot springs",
+      "Yoga retreats",
+      "Meditation",
+      "Ayurvedic treatments"
+    ],
+    "Food and Drink": [
+      "Trying traditional Peruvian cuisine",
+      "Exploring local markets",
+      "Visiting cafes and restaurants",
+      "Taking a cooking class"
+    ]
+  },
+  "Kathmandu": {
+    "Outdoor Activities": [
+      "Hiking",
+      "Trekking",
+      "Mountain Biking",
+      "Rock Climbing",
+      "Whitewater Rafting",
+      "Bungee Jumping",
+      "Paragliding",
+      "Ziplining"
+    ],
+    "Cultural Experiences": [
+      "Visiting Temples and Stupas",
+      "Exploring Durbar Squares",
+      "Learning about Tibetan Buddhism",
+      "Attending Festivals",
+      "Taking a Cooking Class",
+      "Shopping for Handicrafts"
+    ],
+    "History and Heritage": [
+      "Visiting the Kathmandu Durbar Square",
+      "Exploring the Boudhanath Stupa",
+      "Learning about the Kathmandu Valley's History",
+      "Visiting the Pashupatinath Temple",
+      "Exploring the Swayambhunath Stupa (Monkey Temple)"
+    ],
+    "Food and Drink": [
+      "Trying traditional Nepalese cuisine",
+      "Sampling Momo (Nepalese dumplings)",
+      "Enjoying Thukpa (Tibetan noodle soup)",
+      "Exploring the Thamel food scene",
+      "Visiting local teahouses"
+    ],
+    "Shopping": [
+      "Buying traditional Nepali handicrafts",
+      "Shopping for souvenirs in Thamel",
+      "Finding unique Tibetan goods",
+      "Browsing local markets"
+    ]
+  },
+  "Zanzibar": {
+    "Beach Activities": [
+      "Sunbathing",
+      "Swimming",
+      "Snorkeling",
+      "Scuba Diving",
+      "Kite Surfing",
+      "Windsurfing",
+      "Boating",
+      "Fishing"
+    ],
+    "Cultural Experiences": [
+      "Visiting Stone Town",
+      "Exploring historical sites",
+      "Attending local markets",
+      "Experiencing Swahili culture",
+      "Learning about Zanzibar's history",
+      "Enjoying traditional music and dance"
+    ],
+    "Wildlife Encounters": [
+      "Dolphin watching",
+      "Whale shark snorkeling",
+      "Visiting Jozani Forest",
+      "Birdwatching",
+      "Exploring mangrove forests"
+    ],
+    "Relaxation and Spa": [
+      "Spa treatments",
+      "Massages",
+      "Yoga",
+      "Meditation",
+      "Enjoying the beach"
+    ],
+    "Food and Drink": [
+      "Trying local cuisine",
+      "Seafood restaurants",
+      "Spice tours",
+      "Cocktail bars",
+      "Street food"
+    ]
+  },
+  "Bali": {
+    "Outdoor Activities": [
+      "Hiking",
+      "Trekking",
+      "Mountain Biking",
+      "Surfing",
+      "Snorkeling",
+      "Scuba Diving",
+      "White Water Rafting",
+      "Stand Up Paddleboarding",
+      "Kayaking",
+      "Canyoning"
+    ],
+    "Cultural Experiences": [
+      "Visiting Temples",
+      "Rice Paddy Tours",
+      "Traditional Dance Performances",
+      "Learning Balinese Cooking",
+      "Yoga and Meditation Retreats",
+      "Art Market Shopping"
+    ],
+    "Beach Relaxation": [
+      "Sunbathing",
+      "Swimming",
+      "Beach Yoga",
+      "Spa Treatments",
+      "Sunset Cocktails"
+    ],
+    "Adventure Activities": [
+      "Bungee Jumping",
+      "Ziplining",
+      "Waterbom Bali Waterpark",
+      "Elephant Riding",
+      "Quad Biking"
+    ],
+    "Nightlife": [
+      "Live Music Venues",
+      "Beach Clubs",
+      "Bars and Pubs",
+      "Traditional Night Markets",
+      "Fire Dance Shows"
+    ]
+  },
+  "Phuket": {
+    "Beach Activities": [
+      "Sunbathing",
+      "Swimming",
+      "Snorkelling",
+      "Scuba Diving",
+      "Parasailing",
+      "Jet Skiing",
+      "Windsurfing",
+      "Kayaking",
+      "Stand Up Paddle Boarding",
+      "Beach Volleyball"
+    ],
+    "Island Hopping": [
+      "Visiting Phi Phi Islands",
+      "Exploring James Bond Island",
+      "Discovering Phang Nga Bay",
+      "Taking a boat trip to Koh Racha",
+      "Snorkelling at Similan Islands"
+    ],
+    "Nature & Wildlife": [
+      "Visiting Khao Sok National Park",
+      "Elephant Sanctuary Tours",
+      "Monkey Watching",
+      "Bird Watching",
+      "Jungle Trekking"
+    ],
+    "Culture & History": [
+      "Visiting Wat Chalong Temple",
+      "Exploring Phuket Town Old Town",
+      "Learning about Tin Mining History",
+      "Visiting the Phuket Trickeye Museum",
+      "Attending a Thai Cooking Class"
+    ],
+    "Nightlife & Entertainment": [
+      "Patong Beach Nightlife",
+      "Bangla Road Clubs",
+      "Live Music Bars",
+      "Beach Clubs",
+      "Fire Shows"
+    ],
+    "Shopping & Dining": [
+      "Shopping at Central Festival Phuket",
+      "Exploring Local Markets",
+      "Dining at Rooftop Restaurants",
+      "Tasting Fresh Seafood",
+      "Exploring Street Food Stalls"
+    ],
+    "Relaxation & Wellness": [
+      "Spa Treatments",
+      "Yoga Retreats",
+      "Meditation Sessions",
+      "Thai Massage",
+      "Beachside Relaxation"
+    ]
+  },
+  "Machu Picchu": {
+    "Hiking & Trekking": [
+      "Inca Trail to Machu Picchu",
+      "Salkantay Trek",
+      "Choquequirao Trek",
+      "Lares Trek",
+      "Inca Jungle Trek",
+      "Classic Inca Trail"
+    ],
+    "Historical Exploration": [
+      "Exploring Machu Picchu",
+      "Visiting the Sun Gate (Inti Punku)",
+      "Discovering the Temple of the Sun",
+      "Exploring the Royal Quarters",
+      "Visiting the Temple of the Three Windows",
+      "Learning about the Inca Empire"
+    ],
+    "Cultural Immersion": [
+      "Visiting Ollantaytambo",
+      "Learning about Andean textiles",
+      "Experiencing traditional music and dance",
+      "Exploring local markets",
+      "Interacting with the Quechua community"
+    ],
+    "Adventure Activities": [
+      "Ziplining",
+      "Whitewater rafting",
+      "Mountain biking",
+      "Horseback riding",
+      "Rock climbing"
+    ],
+    "Nature & Wildlife": [
+      "Birdwatching in the Sacred Valley",
+      "Observing Andean Condors",
+      "Exploring cloud forests",
+      "Hiking through diverse ecosystems"
+    ]
+  },
+  "Madagascar": {
+    "Outdoor Adventures": [
+      "Hiking",
+      "Rock Climbing",
+      "Mountain Biking",
+      "Scuba Diving",
+      "Snorkeling",
+      "Whale Watching",
+      "Wildlife Safaris",
+      "Lemur Trekking",
+      "Birdwatching"
+    ],
+    "Cultural Experiences": [
+      "Visiting Traditional Villages",
+      "Exploring Ancient Ruins",
+      "Learning about Malagasy Culture",
+      "Attending Local Festivals",
+      "Listening to Traditional Music",
+      "Trying Malagasy Cuisine"
+    ],
+    "Beach Activities": [
+      "Sunbathing",
+      "Swimming",
+      "Surfing",
+      "Kiteboarding",
+      "Windsurfing",
+      "Boating",
+      "Fishing"
+    ],
+    "Nature Exploration": [
+      "Rainforest Trekking",
+      "Exploring Tsingy de Bemaraha National Park",
+      "Visiting Avenue of the Baobabs",
+      "Kayaking in the Tsingy de Bemaraha",
+      "Exploring Isalo National Park"
+    ]
+  },
+  "Jaipur": {
+    "Cultural Experiences": [
+      "Visiting historical forts like Amber Fort, Jaigarh Fort, and Nahargarh Fort",
+      "Exploring the City Palace and its museums",
+      "Wandering through the vibrant bazaars like Johri Bazaar and Bapu Bazaar",
+      "Attending traditional Rajasthani dance and music performances",
+      "Experiencing a camel safari in the outskirts of the city",
+      "Visiting the Hawa Mahal (Palace of Winds) and its intricate architecture"
+    ],
+    "Shopping & Dining": [
+      "Shopping for traditional Rajasthani handicrafts, jewelry, and textiles",
+      "Trying local delicacies like Dal Baati Churma, Ghevar, and Laal Maas",
+      "Exploring the vibrant street food scene and trying local snacks",
+      "Dining at rooftop restaurants offering panoramic city views",
+      "Visiting upscale restaurants serving international cuisine"
+    ],
+    "Nature & Wildlife": [
+      "Visiting the Jhalana Leopard Reserve to spot leopards in their natural habitat",
+      "Exploring the Galtaji Temple, a Hindu temple carved into a hillside",
+      "Hiking in the Aravalli hills surrounding Jaipur",
+      "Visiting the Govindgarh Wildlife Sanctuary for birdwatching and nature walks",
+      "Exploring the Nahargarh Biological Park for a variety of wildlife encounters"
+    ],
+    "Adventure & Recreation": [
+      "Hot air ballooning over the city for breathtaking views",
+      "Exploring the Rambagh Palace and its sprawling gardens",
+      "Playing golf at the Jaipur Golf Course",
+      "Visiting the Albert Hall Museum for its collection of art and artifacts",
+      "Taking a scenic drive to the outskirts of Jaipur to explore nearby villages"
+    ]
+  },
   "Galápagos Islands": {
     "Wildlife Encounters": [
       "Snorkeling with marine iguanas",
