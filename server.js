@@ -12,7 +12,6 @@ const port = process.env.PORT || 3000;
 // Set up logging
 app.use(morgan('combined'));
 
-
 // Parse incoming JSON data
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));

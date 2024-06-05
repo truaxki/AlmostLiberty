@@ -1,8 +1,12 @@
 const express = require('express');
 const router = express.Router();
+const axios = require('axios'); // Added axios import
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 const dotenv = require('dotenv');
 dotenv.config(); // Ensure dotenv is configured correctly
+
+// In-memory cache object
+const cache = {};
 
 // Ensure the API key is loaded from the environment variable
 if (!process.env.API_KEY) {
@@ -16,24 +20,34 @@ const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 // Asynchronous function to generate spots
 async function spotFun(req, res) {
     const { location, activityString } = req.query; // Extract location and activityString from the query parameters
+
+    // Create a unique cache key based on location and activityString
+    const cacheKey = `${location}-${activityString}`;
+
+    // Check if the data for the location and activityString is in the cache
+    if (cache[cacheKey]) {
+        console.log(`Returning cached spots for location: ${location} and activityString: ${activityString}`);
+        return res.json(cache[cacheKey]);
+    }
+
     const prompt = `Generate a JSON object listing:
     places the user should visit in ${location} that has ${activityString} 
     Return with following elements and data structure:
     [
         {
-            "relevence": 0-x
+            "relevance": 0-x
             "name": "Notes on ${location}",
             "description": "The first object will contain any notes regarding this search. If the location is not known for ${activityString} return features the user should look for instead. ",
             "features": ["Feature 1a", "Feature 1b", "Feature 1c"]
         },
         {
-            "relevence": 1-x
+            "relevance": 1-x
             "name": "Location 1",
             "description": "Description for Location 1",
             "features": ["Feature 1a", "Feature 1b", "Feature 1c"]
         },
         {
-            "relevence": 2-x
+            "relevance": 2-x
             "name": "Location 2",
             "description": "Description for Location 2",
             "features": ["Feature 2a", "Feature 2b", "Feature 2c"]
@@ -58,6 +72,9 @@ async function spotFun(req, res) {
                 const parsedObject = JSON.parse(match[1].trim());
                 console.timeEnd(timerLabel); // End the timer and log the duration
                 console.log('Returning parsed object:', parsedObject);
+
+                // Cache the generated spots
+                cache[cacheKey] = parsedObject;
                 return res.json(parsedObject); // Return the parsed object as JSON response
             } catch (finalParseError) {
                 console.error('Final parsing error:', finalParseError);
