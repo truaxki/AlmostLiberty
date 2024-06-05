@@ -1,5 +1,7 @@
 let userLocation = '';
 let selectedActivities = new Set();
+
+// Array of messages to display after fetching activities
 const messages = [
     "We recommend these activities for your destination. Feeling something else? Customize your search below.",
     "Check out these recommended activities for your trip. Want something different? Tailor your search below.",
@@ -14,6 +16,7 @@ const messages = [
     "Don't miss these activities at your location. Looking for more? Adjust your search below."
 ];
 
+// Array of messages to display while fetching spots
 const loadingMessages = [
     "Hacking into travel sites... almost there!",
     "Hijacking travel guides for you... please wait!",
@@ -27,6 +30,7 @@ const loadingMessages = [
     "Unlocking hidden travel gems... please wait!"
 ];
 
+// Array of locations for "Spin the Globe"
 const locations = [
     "New York", "London", "Paris", "Tokyo", "Sydney", "Cape Town", "Moscow", "Rio de Janeiro", "Toronto", "Dubai",
     "Bora Bora", "Marrakech", "Santorini", "Maldives", "Reykjavik", "Queenstown", "Petra", "Seychelles", 
@@ -35,6 +39,16 @@ const locations = [
     "Vientiane", "Monte Carlo", "Havana", "Cairo", "Reykjavik", "Transylvania"
 ];
 
+// Event listener for the Spin the Globe location button
+document.getElementById('randomLocationButton').addEventListener('click', () => {
+    const randomLocation = locations[Math.floor(Math.random() * locations.length)];
+    document.getElementById('activityLocation').value = randomLocation;
+    userLocation = randomLocation;
+    clearScreen();
+    fetchActivityFun();
+});
+
+// Event listener for the location input field. Blur is click out. 
 document.getElementById('activityLocation').addEventListener('blur', () => {
     const newLocation = document.getElementById('activityLocation').value;
     if (newLocation && newLocation !== userLocation) {
@@ -44,13 +58,6 @@ document.getElementById('activityLocation').addEventListener('blur', () => {
     }
 });
 
-document.getElementById('randomLocationButton').addEventListener('click', () => {
-    const randomLocation = locations[Math.floor(Math.random() * locations.length)];
-    document.getElementById('activityLocation').value = randomLocation;
-    userLocation = randomLocation;
-    clearScreen();
-    fetchActivityFun();
-});
 
 function clearScreen() {
     document.getElementById('generalActivityButtons').innerHTML = '';
@@ -62,6 +69,7 @@ function clearScreen() {
     document.getElementById('activityString').value = '';
 }
 
+// Function to fetch activities based on user input location
 async function fetchActivityFun() {
     const location = document.getElementById('activityLocation').value;
     const loadingMessage = document.getElementById('loadingMessage');
