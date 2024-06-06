@@ -17,3 +17,5 @@ report.*.json
 
 # Activities Populate Script
 activitiesPopulate.js
+locations.txt
+activitiesIndex.js

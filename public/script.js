@@ -39,6 +39,11 @@ const locations = [
     "Vientiane", "Monte Carlo", "Havana", "Cairo", "Reykjavik", "Transylvania"
 ];
 
+// Function to capitalize the first letter of each word
+function capitalizeWords(str) {
+    return str.replace(/\b\w/g, char => char.toUpperCase());
+}
+
 // Event listener for the Spin the Globe location button
 document.getElementById('randomLocationButton').addEventListener('click', () => {
     const randomLocation = locations[Math.floor(Math.random() * locations.length)];
@@ -58,7 +63,6 @@ document.getElementById('activityLocation').addEventListener('blur', () => {
     }
 });
 
-
 function clearScreen() {
     document.getElementById('generalActivityButtons').innerHTML = '';
     document.getElementById('specificActivityButtons').innerHTML = '';
@@ -72,18 +76,19 @@ function clearScreen() {
 // Function to fetch activities based on user input location
 async function fetchActivityFun() {
     const location = document.getElementById('activityLocation').value;
+    const formattedLocation = capitalizeWords(location);
     const loadingMessage = document.getElementById('loadingMessage');
     if (!location) {
         alert('Please enter a location before searching.');
         return;
     }
-    loadingMessage.innerText = `Searching activities for ${location}. Please wait.`;
+    loadingMessage.innerText = `Searching activities for ${formattedLocation}. Please wait.`;
     loadingMessage.classList.remove('hidden');
 
-    console.log('Fetching activities for:', location);
+    console.log('Fetching activities for:', formattedLocation);
 
     try {
-        const response = await fetch(`/api/activity?location=${encodeURIComponent(location)}`);
+        const response = await fetch(`/api/activity?location=${encodeURIComponent(formattedLocation)}`);
         console.log('Fetch initiated...');
         console.log('Response status:', response.status);
         if (!response.ok) throw new Error('Network response was not ok');
