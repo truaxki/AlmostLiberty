@@ -32,12 +32,33 @@ const loadingMessages = [
 
 // Array of locations for "Spin the Globe"
 const locations = [
-    "New York", "London", "Paris", "Tokyo", "Sydney", "Cape Town", "Moscow", "Rio de Janeiro", "Toronto", "Dubai",
-    "Bora Bora", "Marrakech", "Santorini", "Maldives", "Reykjavik", "Queenstown", "Petra", "Seychelles", 
-    "Buenos Aires", "Fiji", "Havana", "Cusco", "Kathmandu", "Zanzibar", "Bali", "Phuket", "Machu Picchu", 
-    "Madagascar", "Jaipur", "Galápagos Islands", "Dubrovnik", "Ulaanbaatar", "Svalbard", "Siem Reap", 
-    "Vientiane", "Monte Carlo", "Havana", "Cairo", "Reykjavik", "Transylvania"
-];
+    "New York", "London", "Paris", "Tokyo", "Sydney", "Cape Town", "Moscow",
+    "Rio de Janeiro", "Toronto", "Dubai", "Bora Bora", "Marrakech", "Santorini",
+    "Maldives", "Reykjavik", "Queenstown", "Petra", "Seychelles", "Buenos Aires",
+    "Fiji", "Havana", "Cusco", "Kathmandu", "Zanzibar", "Bali", "Phuket",
+    "Machu Picchu", "Madagascar", "Jaipur", "Galápagos Islands", "Dubrovnik",
+    "Ulaanbaatar", "Svalbard", "Siem Reap", "Monte Carlo", "Cairo", "Delhi",
+    "Shanghai", "São Paulo", "Mumbai", "Beijing", "Dhaka", "Mexico City",
+    "Osaka", "Karachi", "Chongqing", "Istanbul", "Kolkata", "Lagos", "Manila",
+    "Guangzhou", "Shenzhen", "Jakarta", "Lima", "Bangkok", "Chennai", "Tehran",
+    "Ho Chi Minh City", "Hong Kong", "Kuala Lumpur", "Santiago", "Riyadh",
+    "Baghdad", "Singapore", "Los Angeles", "Madrid", "Yokohama", "Dallas",
+    "Johannesburg", "Melbourne", "Houston", "Nairobi", "Casablanca",
+    "Caracas", "Dar es Salaam", "Algiers", "Pyongyang", "Sapporo",
+    "Kampala", "Wuhan", "Tianjin", "Phoenix", "Philadelphia", "San Antonio",
+    "San Diego", "Austin", "Jacksonville", "San Francisco", "Seattle",
+    "Denver", "Washington", "Boston", "Detroit", "Portland", "Tampa",
+    "New Orleans", "Honolulu", "Orlando", "Newark", "Buffalo", "Richmond",
+    "Boise", "Spokane", "Tacoma", "San Bernardino", "Des Moines",
+    "Moreno Valley", "Narnia", "Westeros", "Middle-earth", "Pandora",
+    "Neverland", "Oz", "Atlantis", "Camelot", "Gotham City", "Metropolis",
+    "Emerald City", "Springfield", "Bedrock", "Bikini Bottom", "Sunnydale",
+    "Rivendell", "Hogsmeade", "The Shire", "Krypton", "Vulcan",
+    "Gallifrey", "Tattooine", "Coruscant", "The Matrix", "Hyrule", "Tamriel",
+    "Azeroth", "Wakanda", "Asgard", "Themyscira", "Quahog", "Langley Falls",
+    "Eternia", "Cybertron", "Kanto", "Naboo", "Arendelle", "Zootopia",
+    "Republic City", "Ankh-Morpork", "Discworld", "Dune", "Arrakis"
+  ];
 
 // Function to capitalize the first letter of each word
 function capitalizeWords(str) {
