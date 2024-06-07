@@ -57,11 +57,11 @@ label {
     font-size: 18px;
     font-weight: bold;
 }
-.input-button-group {
+.search-button-group {
     display: flex;
     align-items: start;
 }
-.input-button-group input[type="text"] {
+.search-button-group input[type="text"] {
     flex: 1;
     margin-right: 20px;
 }

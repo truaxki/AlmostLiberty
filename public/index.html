@@ -25,10 +25,7 @@
         <h2>Your Gateway to Limitless Adventure, Powered by Gemini AI</h2>
         <div class="form-group" id="locationGroup">
             <label for="activityLocation">Location</label>
-            <div class="input-button-group">
                 <input type="text" id="activityLocation" placeholder="Enter a location (real or fictional)">
-                <button id="randomLocationButton">Spin the Globe</button>
-            </div>
             <div id="generalActivityButtons"></div>
             <div id="specificActivityButtons" class="hidden"></div>
             <div class="output" id="activityOutput"></div>
@@ -37,7 +34,10 @@
         <div class="form-group" id="activityGroup">
             <label for="activityString">Activity</label>
             <input type="text" id="activityString" placeholder="Custom Search (optional)">
-            <button onclick="fetchSpotFun()">Get Spots</button>
+            <div class="search-button-group">
+                <button onclick="fetchSpotFun()">Get Spots</button>
+                <button id="randomLocationButton">Spin the Globe</button>
+            </div>
             <div class="output" id="spotOutput"></div>
         </div>
         <div class="form-group hidden" id="searchingMessage">
