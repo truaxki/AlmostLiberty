@@ -58,7 +58,7 @@ const locations = [
     "Azeroth", "Wakanda", "Asgard", "Themyscira", "Quahog", "Langley Falls",
     "Eternia", "Cybertron", "Kanto", "Naboo", "Arendelle", "Zootopia",
     "Republic City", "Ankh-Morpork", "Discworld", "Dune", "Arrakis"
-  ];
+];
 
 // Function to capitalize the first letter of each word
 function capitalizeWords(str) {
@@ -108,17 +108,33 @@ async function fetchActivityFun() {
 
     console.log('Fetching activities for:', formattedLocation);
 
-    try {
-        const response = await fetch(`/api/activity?location=${encodeURIComponent(formattedLocation)}`);
-        console.log('Fetch initiated...');
-        console.log('Response status:', response.status);
-        if (!response.ok) throw new Error('Network response was not ok');
-        const data = await response.json();
-        console.log('Received data:', data);
+    const maxRetries = 3; // Maximum number of retries
+    let attempts = 0;
+    let success = false;
+    let data;
+
+    while (attempts < maxRetries && !success) {
+        try {
+            attempts++;
+            const response = await fetch(`/api/activity?location=${encodeURIComponent(formattedLocation)}`);
+            console.log('Fetch initiated...');
+            console.log('Response status:', response.status);
+            if (!response.ok) throw new Error('Network response was not ok');
+            data = await response.json();
+            console.log('Received data:', data);
+            success = true;
+        } catch (error) {
+            console.error(`Fetch attempt ${attempts} error:`, error);
+            if (attempts >= maxRetries) {
+                document.getElementById('activityOutput').innerHTML = `<pre>Error: ${error.message}</pre>`;
+                loadingMessage.classList.add('hidden');
+                return;
+            }
+        }
+    }
+
+    if (success) {
         displayGeneralActivityButtons(data);
-    } catch (error) {
-        console.error('Fetch error:', error);
-        document.getElementById('activityOutput').innerHTML = `<pre>Error: ${error.message}</pre>`;
         loadingMessage.classList.add('hidden');
     }
 }
