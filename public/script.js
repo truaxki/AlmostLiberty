@@ -1,6 +1,31 @@
 let userLocation = '';
 let selectedActivities = new Set();
 
+document.addEventListener('DOMContentLoaded', function() {
+    var popup = document.getElementById('welcome-popup');
+    var close = document.getElementsByClassName('close')[0];
+
+    // Show the popup after 1 second
+    setTimeout(function() {
+        popup.style.display = 'block';
+    }, 1000);
+
+    // Close the popup when the user clicks on <span> (x)
+    close.onclick = function() {
+        popup.style.display = 'none';
+    }
+
+    // Close the popup when the user clicks anywhere outside of the popup
+    window.onclick = function(event) {
+        if (event.target == popup) {
+            popup.style.display = 'none';
+        }
+    }
+});
+
+
+
+
 // Array of messages to display after fetching activities
 const messages = [
     "We recommend these activities for your destination. Feeling something else? Customize your search below.",
