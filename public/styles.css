@@ -3,7 +3,7 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background: url('public/CosmosBackground.png'); /* Use only the background image */
+    background: url('CosmosBackground.png'); /* Use only the background image */
     background-size: cover; /* Ensure the image covers the viewport */
     background-repeat: no-repeat; /* Prevent repetition */
     background-attachment: fixed; /* Keep the background fixed during scrolling */
@@ -187,7 +187,7 @@ button:hover {
 
 body {
     font-family: Arial, sans-serif;
-    background: url('public/CosmosBackground.png');
+    background: url('CosmosBackground.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;

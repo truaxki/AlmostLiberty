@@ -39,8 +39,8 @@ function validateInputs(location, activityString) {
     }
     
     return {
-        location: location.trim().replace(/[<>\"'&]/g, ''),
-        activityString: activityString.trim().replace(/[<>\"'&]/g, '')
+        location: location.trim().replace(/[<>"'&]/g, ''),
+        activityString: activityString.trim().replace(/[<>"'&]/g, '')
     };
 }
 
@@ -258,7 +258,7 @@ router.get('/cache-stats', (req, res) => {
     let validEntries = 0;
     let expiredEntries = 0;
     
-    for (const [key, value] of cache.entries()) {
+    for (const value of cache.values()) {
         if (now - value.timestamp < CACHE_DURATION) {
             validEntries++;
         } else {
