@@ -1,88 +1,221 @@
+// Optimized api/activity.js with OpenAI GPT-4o-mini
 const express = require('express');
 const router = express.Router();
-const fs = require('fs');
-const path = require('path');
-const axios = require('axios');
-const { GoogleGenerativeAI } = require('@google/generative-ai');
+const OpenAI = require('openai');
 const dotenv = require('dotenv');
+
 dotenv.config();
 
-if (!process.env.API_KEY) {
-    console.error('API key is missing. Please check your .env file.');
+if (!process.env.OPENAI_API_KEY) {
+    console.error('OpenAI API key is missing. Please check your .env file.');
     process.exit(1);
 }
 
-const genAI = new GoogleGenerativeAI(process.env.API_KEY);
+const openai = new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY,
+});
 
-// Use __dirname to construct the absolute path to the JSON file
-const activitiesFilePath = path.join(__dirname, '../activities.json');
+// In-memory cache with expiration
+const cache = new Map();
+const CACHE_DURATION = 30 * 60 * 1000; // 30 minutes
 
-async function activityFun(req, res) {
-    const userInput = req.query.location;
-    console.log(`Received request for location: ${userInput}`);
-
-    // Attempt to read the activities.json file and parse its contents
-    let activitiesData;
-    try {
-        const activitiesFile = fs.readFileSync(activitiesFilePath, 'utf8');
-        activitiesData = JSON.parse(activitiesFile);
-    } catch (error) {
-        console.error('Error reading activities.json:', error);
-        return res.status(500).send('Error reading predefined activities data');
+// Input validation and sanitization
+function validateAndSanitizeInput(location) {
+    if (!location || typeof location !== 'string') {
+        throw new Error('Location is required and must be a string');
     }
-
-    // Case-insensitive matching of user input to the locations in activities.json
-    const regex = new RegExp(`^${userInput}$`, 'i');
-    const matchedLocation = Object.keys(activitiesData).find(location => regex.test(location));
-
-    if (matchedLocation) {
-        console.log(`Returning predefined activities for location: ${matchedLocation}`);
-        return res.json(activitiesData[matchedLocation]);
+    
+    const sanitized = location.trim();
+    if (sanitized.length === 0) {
+        throw new Error('Location cannot be empty');
     }
-
-    const prompt = `Generate a JSON object listing general activities the area is known for, with specific activities for each general activity. The JSON object should have the following structure:
-    {
-      "generalActivity1": ["specificActivity1", "specificActivity2", ...],
-      "generalActivity2": ["specificActivity1", "specificActivity2", ...],
-      ...
+    
+    if (sanitized.length > 100) {
+        throw new Error('Location name too long (max 100 characters)');
     }
-    Make sure to use proper JSON syntax, including commas between items and correct quotation marks. The location is: ${userInput}.`;
+    
+    // Remove potentially harmful characters but keep international characters
+    const cleaned = sanitized.replace(/[<>\"'&]/g, '');
+    return cleaned;
+}
 
-    console.time("generate-activities");
-    try {
-        console.log(`Sending request to generate activities for location: ${userInput}`);
-        const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
-        const result = await model.generateContent(prompt);
-        const response = await result.response;
-        const text = await response.text();
-
-        const match = text.match(/```json([\s\S]*?)```/);
-        if (match) {
-            const sanitizedText = match[1].trim()
-                .replace(/“|”/g, '"')  // Replace fancy quotes with standard quotes
-                .replace(/,\s*}/g, '}') // Remove trailing commas before closing braces
-                .replace(/,\s*]/g, ']'); // Remove trailing commas before closing brackets
-            try {
-                const parsedObject = JSON.parse(sanitizedText);
-                console.timeEnd("generate-activities");
-                console.log('Returning parsed object:', parsedObject);
-                return res.json(parsedObject);
-            } catch (finalParseError) {
-                console.error('Final parsing error:', finalParseError);
-                console.error('Invalid JSON:', sanitizedText);
-                console.timeEnd("generate-activities");
-                return res.status(500).send(`Parsing failure, string = ${text}`);
-            }
-        } else {
-            console.timeEnd("generate-activities");
-            return res.status(500).send(`Parsing failure, string = ${text}`);
+// Validate activities response structure
+function validateActivitiesResponse(data) {
+    if (!data || typeof data !== 'object' || Array.isArray(data)) {
+        throw new Error('Response must be an object');
+    }
+    
+    const keys = Object.keys(data);
+    if (keys.length === 0) {
+        throw new Error('Response must contain at least one activity category');
+    }
+    
+    for (const [category, activities] of Object.entries(data)) {
+        if (!Array.isArray(activities)) {
+            throw new Error(`Category "${category}" must contain an array of activities`);
         }
-    } catch (error) {
-        console.error('Error:', error);
-        console.timeEnd("generate-activities");
-        return res.status(500).send('Error generating activities');
+        if (activities.length === 0) {
+            throw new Error(`Category "${category}" cannot be empty`);
+        }
+        
+        // Ensure all activities are strings
+        for (let i = 0; i < activities.length; i++) {
+            if (typeof activities[i] !== 'string' || activities[i].trim().length === 0) {
+                activities[i] = `Activity ${i + 1}`; // Fallback
+            }
+        }
+    }
+    
+    return data;
+}
+
+// Get cached or fresh activities data
+function getCachedData(key) {
+    const cached = cache.get(key);
+    if (cached && Date.now() - cached.timestamp < CACHE_DURATION) {
+        return cached.data;
+    }
+    cache.delete(key); // Remove expired cache
+    return null;
+}
+
+// Set cache data
+function setCachedData(key, data) {
+    cache.set(key, {
+        data,
+        timestamp: Date.now()
+    });
+    
+    // Clean up old cache entries periodically
+    if (cache.size > 1000) {
+        const now = Date.now();
+        for (const [k, v] of cache.entries()) {
+            if (now - v.timestamp > CACHE_DURATION) {
+                cache.delete(k);
+            }
+        }
     }
 }
+
+// Main activity function with retry logic
+async function activityFun(req, res) {
+    const startTime = Date.now();
+    
+    try {
+        // Input validation
+        const userInput = validateAndSanitizeInput(req.query.location);
+        console.log(`Processing request for location: ${userInput}`);
+        
+        // Check predefined activities first (from server cache)
+        const activitiesData = req.app.locals.getActivitiesData();
+        if (activitiesData) {
+            const regex = new RegExp(`^${userInput.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`, 'i');
+            const matchedLocation = Object.keys(activitiesData).find(location => regex.test(location));
+            
+            if (matchedLocation) {
+                console.log(`Returning predefined activities for: ${matchedLocation}`);
+                return res.json(activitiesData[matchedLocation]);
+            }
+        }
+        
+        // Check API cache
+        const cacheKey = `activities_${userInput.toLowerCase()}`;
+        const cachedResult = getCachedData(cacheKey);
+        if (cachedResult) {
+            console.log(`Returning cached activities for: ${userInput}`);
+            return res.json(cachedResult);
+        }
+        
+        // Generate with OpenAI using structured output
+        const prompt = `Generate activities for ${userInput}. Return a JSON object where keys are activity categories and values are arrays of specific activities.
+
+Categories should be logical like "Outdoor Activities", "Cultural Experiences", "Food & Drink", "Shopping", "Entertainment", etc.
+
+Each category should have 3-6 specific activities that are actually available in ${userInput}.
+
+Focus on what ${userInput} is actually known for. If it's a fictional place, be creative but consistent.
+
+Return only valid JSON with no markdown formatting.`;
+
+        console.time(`generate-activities-${userInput}`);
+        
+        // Retry logic
+        const maxRetries = 3;
+        let lastError;
+        
+        for (let attempt = 1; attempt <= maxRetries; attempt++) {
+            try {
+                console.log(`Attempt ${attempt} for ${userInput}`);
+                
+                const response = await openai.chat.completions.create({
+                    model: 'gpt-4o-mini',
+                    messages: [
+                        {
+                            role: 'system',
+                            content: 'You are a travel expert. Return only valid JSON objects with no markdown formatting or explanations.'
+                        },
+                        {
+                            role: 'user',
+                            content: prompt
+                        }
+                    ],
+                    response_format: { type: 'json_object' },
+                    temperature: 0.7,
+                    max_tokens: 1500
+                });
+                
+                const text = response.choices[0].message.content;
+                const parsedObject = JSON.parse(text);
+                const validatedData = validateActivitiesResponse(parsedObject);
+                
+                console.timeEnd(`generate-activities-${userInput}`);
+                console.log(`Successfully generated activities for ${userInput} (${Date.now() - startTime}ms)`);
+                
+                // Cache the result
+                setCachedData(cacheKey, validatedData);
+                
+                return res.json(validatedData);
+                
+            } catch (error) {
+                console.error(`Attempt ${attempt} failed for ${userInput}:`, error.message);
+                lastError = error;
+                
+                if (attempt < maxRetries) {
+                    // Exponential backoff
+                    await new Promise(resolve => setTimeout(resolve, Math.pow(2, attempt) * 1000));
+                }
+            }
+        }
+        
+        console.timeEnd(`generate-activities-${userInput}`);
+        throw lastError;
+        
+    } catch (error) {
+        console.error('Activity generation error:', error);
+        
+        const errorResponse = {
+            error: 'Failed to generate activities',
+            message: error.message,
+            location: req.query.location,
+            timestamp: new Date().toISOString()
+        };
+        
+        // Different status codes for different error types
+        if (error.message.includes('Location') && error.message.includes('required')) {
+            return res.status(400).json(errorResponse);
+        }
+        
+        return res.status(500).json(errorResponse);
+    }
+}
+
+// Add request timeout middleware
+router.use((req, res, next) => {
+    req.setTimeout(25000, () => {
+        res.status(408).json({ error: 'Request timeout' });
+    });
+    next();
+});
 
 router.get('/', activityFun);
 module.exports = router;
