@@ -35,7 +35,7 @@ function validateAndSanitizeInput(location) {
     }
     
     // Remove potentially harmful characters but keep international characters
-    const cleaned = sanitized.replace(/[<>\"'&]/g, '');
+    const cleaned = sanitized.replace(/[<>"'&]/g, '');
     return cleaned;
 }
 

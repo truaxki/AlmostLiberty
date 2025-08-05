@@ -43,7 +43,6 @@ function initializeEventListeners() {
     };
 
     // Input handlers with debouncing
-    let locationTimeout;
     domElements.locationInput.addEventListener('input', debounce((e) => {
         const newLocation = e.target.value;
         if (newLocation && newLocation !== userLocation && newLocation.length > 2) {
@@ -191,7 +190,6 @@ async function fetchActivityFun() {
     // Check cache first
     const cachedData = getCachedData(cacheKey);
     if (cachedData) {
-        console.log('Using cached activities for:', formattedLocation);
         displayGeneralActivityButtons(cachedData);
         return;
     }
@@ -205,7 +203,6 @@ async function fetchActivityFun() {
     const timeoutId = setTimeout(() => loadingController.abort(), 25000); // 25s timeout
 
     try {
-        console.log('Fetching activities for:', formattedLocation);
         
         const response = await fetch(`/api/activity?location=${encodeURIComponent(formattedLocation)}`, {
             signal: loadingController.signal,
@@ -222,7 +219,6 @@ async function fetchActivityFun() {
         }
 
         const data = await response.json();
-        console.log('Received activities:', data);
 
         // Cache the successful response
         setCachedData(cacheKey, data);
@@ -246,21 +242,22 @@ async function fetchActivityFun() {
 
 // Optimized spot fetching
 async function fetchSpotFun() {
-    const activityInput = domElements.activityInput.value;
-    const combinedText = activityInput + (selectedActivities.size ? ' ; ' + Array.from(selectedActivities).join(' ; ') : '');
-    
-    if (!combinedText.trim()) {
+    const activityInput = domElements.activityInput.value.trim();
+    const parts = [];
+    if (activityInput) parts.push(activityInput);
+    if (selectedActivities.size) parts.push(...selectedActivities);
+    const combinedText = parts.join(' ; ');
+
+    if (!combinedText) {
         showError('Please select some activities or enter a custom search.');
         return;
     }
 
-    console.log('Fetching spots for:', userLocation, combinedText);
 
     const cacheKey = generateCacheKey(userLocation, combinedText);
     const cachedData = getCachedData(cacheKey);
     
     if (cachedData) {
-        console.log('Using cached spots');
         displaySpots(cachedData);
         return;
     }
@@ -290,7 +287,6 @@ async function fetchSpotFun() {
         }
 
         const data = await response.json();
-        console.log('Received spots:', data);
 
         setCachedData(cacheKey, data);
         displaySpots(data);
@@ -327,7 +323,7 @@ function displayGeneralActivityButtons(jsonObject) {
         button.innerText = activity;
         button.onclick = () => {
             displaySpecificActivityButtons(jsonObject[activity]);
-            toggleActivity(activity);
+            toggleActivity(activity, button);
         };
         
         // Add staggered animation delay
@@ -351,7 +347,7 @@ function displaySpecificActivityButtons(activities) {
         const button = document.createElement('button');
         button.classList.add('specific-activity-button');
         button.innerText = activity;
-        button.onclick = () => toggleActivity(activity);
+        button.onclick = () => toggleActivity(activity, button);
         fragment.appendChild(button);
     });
     
@@ -361,10 +357,9 @@ function displaySpecificActivityButtons(activities) {
 }
 
 // Optimized activity toggle
-function toggleActivity(activity) {
-    const button = Array.from(document.querySelectorAll('button')).find(btn => btn.innerText === activity);
+function toggleActivity(activity, button) {
     if (!button) return;
-    
+
     if (selectedActivities.has(activity)) {
         selectedActivities.delete(activity);
         button.classList.remove('active');
@@ -372,16 +367,14 @@ function toggleActivity(activity) {
         selectedActivities.add(activity);
         button.classList.add('active');
     }
-    
+
     updateActivityInput();
 }
 
 // Update activity input display
 function updateActivityInput() {
-    const activityText = domElements.activityInput.value;
     const selectedActivitiesText = Array.from(selectedActivities).join(' ; ');
-    const combinedText = activityText + (selectedActivitiesText ? ' ; ' + selectedActivitiesText : '');
-    console.log('Combined Text:', combinedText);
+    domElements.activityInput.placeholder = selectedActivitiesText || 'Custom Search (optional)';
 }
 
 // Optimized spots display
@@ -451,3 +444,5 @@ window.addEventListener('beforeunload', () => {
         loadingController.abort();
     }
 });
+window.fetchSpotFun = fetchSpotFun;
+
