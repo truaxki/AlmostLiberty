@@ -1,4 +1,4 @@
-// Optimized api/activity.js with OpenAI GPT-4o-mini
+// Temporary fix for Vercel sk-proj key issue
 const express = require('express');
 const router = express.Router();
 const OpenAI = require('openai');
@@ -6,14 +6,39 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-if (!process.env.OPENAI_API_KEY) {
-    console.error('OpenAI API key is missing. Please check your .env file.');
+// TEMPORARY: Hardcode the full key to test if it's a Vercel environment variable issue
+let apiKey = process.env.OPENAI_API_KEY;
+
+// If the key is truncated (missing sk-proj-), reconstruct it
+if (apiKey && apiKey.startsWith('xAfI6jh') && apiKey.endsWith('U0A')) {
+    // Reconstruct the full key - replace this with your actual key temporarily
+    apiKey = 'sk-proj-' + apiKey;
+    console.log('Reconstructed truncated key');
+}
+
+if (!apiKey) {
+    console.error('OpenAI API key is missing. Please check your environment variables.');
+    console.error('Looking for: OPENAI_API_KEY');
+    console.error('Available env vars:', Object.keys(process.env).filter(k => k.includes('OPENAI') || k.includes('API')));
     process.exit(1);
 }
 
+if (!apiKey.startsWith('sk-')) {
+    console.error('OpenAI API key appears to be malformed. It should start with "sk-"');
+    console.error('Current key starts with:', apiKey.substring(0, 10) + '...');
+    console.error('Current key length:', apiKey.length);
+    process.exit(1);
+}
+
+console.log('OpenAI API key loaded. Key starts with:', apiKey.substring(0, 15) + '...');
+console.log('Key length:', apiKey.length);
+
 const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
+    apiKey: apiKey,
 });
+
+// Rest of your code stays the same...
+// (Include all the existing functions from your activity.js file)
 
 // In-memory cache with expiration
 const cache = new Map();

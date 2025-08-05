@@ -1,4 +1,4 @@
-// Optimized api/spot.js with OpenAI GPT-4o-mini
+// Optimized api/spot.js with better Vercel environment handling
 const express = require('express');
 const router = express.Router();
 const OpenAI = require('openai');
@@ -6,13 +6,26 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-if (!process.env.OPENAI_API_KEY) {
-    console.error('OpenAI API key is missing. Please check your .env file.');
+// Better environment variable handling for Vercel
+const apiKey = process.env.OPENAI_API_KEY;
+
+if (!apiKey) {
+    console.error('OpenAI API key is missing. Please check your environment variables.');
+    console.error('Looking for: OPENAI_API_KEY');
+    console.error('Available env vars:', Object.keys(process.env).filter(k => k.includes('OPENAI') || k.includes('API')));
     process.exit(1);
 }
 
+if (!apiKey.startsWith('sk-')) {
+    console.error('OpenAI API key appears to be malformed. It should start with "sk-"');
+    console.error('Current key starts with:', apiKey.substring(0, 10) + '...');
+    process.exit(1);
+}
+
+console.log('OpenAI API key loaded successfully. Key starts with:', apiKey.substring(0, 15) + '...');
+
 const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
+    apiKey: apiKey,
 });
 
 // Enhanced cache with TTL and size limits
@@ -218,6 +231,15 @@ Include 3-5 specific locations total. Focus on real places if possible, or descr
                 
             } catch (error) {
                 console.error(`Spots attempt ${attempt} failed:`, error.message);
+                
+                // Log more details for API key errors
+                if (error.message && error.message.includes('API key')) {
+                    console.error('API Key Debug Info:');
+                    console.error('- Key starts with:', apiKey.substring(0, 15) + '...');
+                    console.error('- Key length:', apiKey.length);
+                    console.error('- Environment:', process.env.NODE_ENV || 'development');
+                }
+                
                 lastError = error;
                 
                 if (attempt < maxRetries) {
